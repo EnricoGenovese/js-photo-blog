@@ -4,3 +4,94 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* GENERAL */
+
+body {
+    font-family: "Edu TAS Beginner", sans-serif;
+    font-weight: auto;
+    font-style: normal;
+    background-image: url("../img/cork.png");
+}
+
+h1 {
+    background-image: url("../img/wall.png");
+    padding: 20px;
+    font-size: 50px;
+}
+
+
+#myAlbum {
+
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    margin: 15px;
+}
+
+/* CONTAINERS */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.caption {
+    margin: 0 15px;
+    padding: 10px 0;
+    background: #FFFFFF;
+}
+
+/* FLEX UTILITIES */
+
+.d-flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+/* TEXT UTILITIES */
+
+.text-center {
+    text-align: center;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+
+/* ANIMATIONS */
+
+
+
+
+/* MEDIA QUERY */
+
+@media screen and (min-width: 768px) {
+    #myAlbum {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: calc(100% / 2);
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    .card {
+        width: calc(100% / 3);
+    }
+}
