@@ -33,6 +33,7 @@ axios.get(baseURL + type,
         console.log(obj)
         template += `
         <figure class="card">
+            <div class="pin"><img src="./img/pin.svg"></div>
             <img src="${obj.url}" alt="${obj.albumId}-${obj.id}">
             <figcaption class="caption">${obj.title}</figcaption>
         </figure> `

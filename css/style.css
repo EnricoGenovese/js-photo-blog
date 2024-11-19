@@ -24,6 +24,8 @@ h1 {
 
 #myAlbum {
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 img {
@@ -39,7 +41,8 @@ img {
 }
 
 .card {
-    max-width: calc(100% -30px);
+    position: relative;
+    max-width: 80%;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
@@ -53,6 +56,13 @@ img {
 .card,
 .caption {
     background: #FFFFFF;
+}
+
+.pin {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* FLEX UTILITIES */
@@ -92,16 +102,16 @@ img {
     transition-duration: 1.1s;
 }
 
+.card:hover .pin {
+    display: none;
+}
+
 /* MEDIA QUERY */
 
 @media screen and (min-width: 768px) {
-    #myAlbum {
-        display: flex;
-        flex-wrap: wrap;
-    }
 
     .card {
-        width: calc((100% - 50px) / 2);
+        max-width: calc((100% - 50px) / 2);
         justify-content: center;
     }
 }
@@ -109,6 +119,6 @@ img {
 @media screen and (min-width: 992px) {
 
     .card {
-        width: calc((100% - 30px)/ 3);
+        width: calc((100% - 50px)/ 3);
     }
 }
