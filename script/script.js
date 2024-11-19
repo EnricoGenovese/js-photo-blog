@@ -12,3 +12,30 @@ rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano
 */
 
 
+const myAlbum = document.getElementById("myAlbum");
+
+
+const baseURL = "https://jsonplaceholder.typicode.com/";
+const type = "photos";
+
+const needed = 6; // from i input
+
+axios.get(baseURL + type,
+    {
+        params: {
+            '_limit': needed,
+        }
+    }
+).then((res) => {
+    let template = "";
+    //
+    res.data.forEach((obj) => {
+        console.log(obj)
+        template += `
+        <figure class="card">
+            <img src="${obj.url}" alt="${obj.albumId}-${obj.id}">
+            <figcaption class="caption">${obj.title}</figcaption>
+        </figure> `
+    })
+    myAlbum.innerHTML = template;
+});

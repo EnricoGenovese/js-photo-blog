@@ -12,6 +12,7 @@ body {
     font-weight: auto;
     font-style: normal;
     background-image: url("../img/cork.png");
+    padding-bottom: 20px;
 }
 
 h1 {
@@ -22,7 +23,6 @@ h1 {
 
 
 #myAlbum {
-
     margin: 0 auto;
 }
 
@@ -39,13 +39,19 @@ img {
 }
 
 .card {
+    max-width: calc(100% -30px);
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
 
 .caption {
-    margin: 0 15px;
-    padding: 10px 0;
+    margin-left: 15px;
+    font-size: 0.8em;
+}
+
+.card,
+.caption {
     background: #FFFFFF;
 }
 
@@ -57,6 +63,10 @@ img {
 
 .justify-center {
     justify-content: center;
+}
+
+.space-around {
+    justify-content: space-around;
 }
 
 /* TEXT UTILITIES */
@@ -91,7 +101,7 @@ img {
     }
 
     .card {
-        width: calc(100% / 2);
+        width: calc((100% - 50px) / 2);
         justify-content: center;
     }
 }
@@ -99,6 +109,6 @@ img {
 @media screen and (min-width: 992px) {
 
     .card {
-        width: calc(100% / 3);
+        width: calc((100% - 30px)/ 3);
     }
 }
