@@ -40,6 +40,7 @@ img {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 
@@ -55,12 +56,9 @@ img {
 .caption {
     margin-left: 15px;
     padding: 3px 0;
-
-}
-
-.caption::first-letter {
     text-transform: capitalize;
 }
+
 
 .card,
 .caption {
@@ -130,7 +128,7 @@ img {
 /* ANIMATIONS */
 
 .card:hover {
-    transform: rotate(15deg);
+    transform: rotate(10deg);
     transition-duration: 0.5s;
     z-index: 1000;
     box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
