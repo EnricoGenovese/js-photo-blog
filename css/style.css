@@ -9,7 +9,7 @@
 
 body {
     font-family: "Edu TAS Beginner", sans-serif;
-    font-weight: auto;
+    font-weight: 400;
     font-style: normal;
     background-image: url("../img/cork.png");
     padding-bottom: 20px;
@@ -23,6 +23,7 @@ h1 {
 
 
 #myAlbum {
+    max-width: 70%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -31,6 +32,7 @@ h1 {
 img {
     max-width: 100%;
     margin: 15px;
+    border-radius: 15px;
 }
 
 /* CONTAINERS */
@@ -40,29 +42,58 @@ img {
     margin: 0 auto;
 }
 
+
 .card {
     position: relative;
     max-width: 80%;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .caption {
     margin-left: 15px;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    padding: 3px 0;
+
+}
+
+.caption::first-letter {
+    text-transform: capitalize;
 }
 
 .card,
 .caption {
     background: #FFFFFF;
+    border-radius: 15px;
 }
 
 .pin {
     position: absolute;
-    top: 0;
+    top: 2%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+#overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.close {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 /* FLEX UTILITIES */
@@ -90,25 +121,37 @@ img {
 }
 
 
+/* DISPLAY UTILITIES */
+
+#overlay.d-none {
+    display: none;
+}
+
+
 /* ANIMATIONS */
 
 .card:hover {
-    transform: rotate(-30deg);
-    transition-duration: 1.1s
+    transform: rotate(15deg);
+    transition-duration: 0.5s;
+    z-index: 1000;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 .card:hover img {
     transform: scale(1.2);
-    transition-duration: 1.1s;
+    transition-duration: 0.5s;
+    cursor: pointer;
 }
 
 .card:hover .pin {
     display: none;
 }
 
+
+
 /* MEDIA QUERY */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) {
 
     .card {
         max-width: calc((100% - 50px) / 2);
@@ -116,9 +159,13 @@ img {
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
+
+    #myAlbum {
+        max-width: 750px;
+    }
 
     .card {
-        width: calc((100% - 50px)/ 3);
+        width: calc((100% - 60px)/ 3);
     }
 }

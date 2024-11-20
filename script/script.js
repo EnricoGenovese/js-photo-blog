@@ -14,11 +14,10 @@ rendi la pagina responsive, in modo che su mobile e tablet le foto si dispongano
 
 const myAlbum = document.getElementById("myAlbum");
 
-
 const baseURL = "https://jsonplaceholder.typicode.com/";
 const type = "photos";
 
-const needed = 6; // from i input
+let needed = 6;
 
 axios.get(baseURL + type,
     {
@@ -30,13 +29,55 @@ axios.get(baseURL + type,
     let template = "";
     //
     res.data.forEach((obj) => {
-        console.log(obj)
+        //
         template += `
         <figure class="card">
             <div class="pin"><img src="./img/pin.svg"></div>
-            <img src="${obj.url}" alt="${obj.albumId}-${obj.id}">
+            <img src="${obj.url}" alt="${obj.title} id="${obj.id}">
             <figcaption class="caption">${obj.title}</figcaption>
         </figure> `
+
     })
+    const caption = document.querySelectorAll(".caption")
+    console.log(caption)
+    // capitalizeAll(caption.innerText)
     myAlbum.innerHTML = template;
+    photoEvent(myAlbum)
+}).catch((error) => {
+    console.log(error);
 });
+
+
+// const photoCaption = document.querySelectorAll("caption");
+const overlay = document.getElementById("overlay");
+const close = document.querySelector("#overlay button")
+
+
+
+close.addEventListener("click", function () {
+    overlay.classList.add("d-none");
+})
+
+
+function capitalizeAll(arr) {
+    const strings = arr.map((word) => word.split);
+    const firstCapital = strings.map((string => string.map((word) => word.charAt(0).toUpperCase() + word.slice(1))));
+    const capitalized = firstCapital.map((strings) => string.join(" "));
+    return capitalized;
+}
+
+function photoEvent() {
+    const images = document.querySelectorAll("figure");
+    // console.log(images)
+    //
+    images.forEach((image) => {
+        image.addEventListener("click", function () {
+            overlay.classList.remove("d-none");
+            const img = image.querySelector("img:nth-child(2)");
+            console.log("immagine", img);
+            const overlayImg = document.querySelector("#overlay img");
+
+            overlayImg.src = img.src;
+        })
+    })
+}
