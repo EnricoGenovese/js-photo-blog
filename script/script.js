@@ -38,8 +38,8 @@ axios.get(baseURL + type,
         </figure> `
 
     })
-    const caption = document.querySelectorAll(".caption")
-    console.log(caption)
+    // const caption = document.querySelectorAll(".caption")
+    // console.log(caption)
     // capitalizeAll(caption.innerText)
     myAlbum.innerHTML = template;
     photoEvent(myAlbum)
@@ -59,12 +59,20 @@ close.addEventListener("click", function () {
 })
 
 
-function capitalizeAll(arr) {
-    const strings = arr.map((word) => word.split);
-    const firstCapital = strings.map((string => string.map((word) => word.charAt(0).toUpperCase() + word.slice(1))));
-    const capitalized = firstCapital.map((strings) => string.join(" "));
-    return capitalized;
-}
+// function capitalizeAll(arr) {
+//     const strings = arr.map((word) => word.split());
+//     console.log(strings)
+//     const firstCapital = strings.map((string => string.map((word) => word.charAt(0).toUpperCase() + word.slice(1))));
+//     console.log(firstCapital);
+//     const capitalized = firstCapital.map((string) => string.join(" "));
+//     console.log(capitalized);
+//     return capitalized;
+// }
+
+// const myArray = ["cane gatto scimmia", "rosso blu verde giallo", "banana ciliegia arancia mela", "sedia tavolo armadio, porta"];
+
+// capitalizeAll(myArray);
+
 
 function photoEvent() {
     const images = document.querySelectorAll("figure");
@@ -74,7 +82,6 @@ function photoEvent() {
         image.addEventListener("click", function () {
             overlay.classList.remove("d-none");
             const img = image.querySelector("img:nth-child(2)");
-            console.log("immagine", img);
             const overlayImg = document.querySelector("#overlay img");
 
             overlayImg.src = img.src;

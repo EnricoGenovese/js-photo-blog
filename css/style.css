@@ -12,7 +12,6 @@ body {
     font-weight: 400;
     font-style: normal;
     background-image: url("../img/cork.png");
-    padding-bottom: 20px;
 }
 
 h1 {
@@ -27,6 +26,7 @@ h1 {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 25px;
 }
 
 img {
@@ -54,7 +54,6 @@ img {
 
 .caption {
     margin-left: 15px;
-    font-size: 0.9em;
     padding: 3px 0;
 
 }
@@ -66,7 +65,7 @@ img {
 .card,
 .caption {
     background: #FFFFFF;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .pin {
